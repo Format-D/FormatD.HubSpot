@@ -1,5 +1,5 @@
 {
-    "description": "",
+    "description": "A HubSpot form finisher that sends neos form builder forms to hubspot",
     "type": "neos-package",
     "name": "formatd/hubspot",
     "license": "MIT",
