@@ -1,0 +1,20 @@
+{
+    "description": "",
+    "type": "neos-package",
+    "name": "formatd/hubspot",
+    "license": "MIT",
+    "require": {
+        "neos/form-builder": "^2.3",
+        "hubspot/api-client": "^9.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "FormatD\\HubSpot\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "FormatD.HubSpot"
+        }
+    }
+}

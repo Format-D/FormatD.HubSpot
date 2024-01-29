@@ -1,0 +1,7 @@
+prototype(FormatD.HubSpot:HubSpotFormFinisher.Definition) < prototype(Neos.Form.Builder:Finisher.Definition) {
+    formElementType = 'FormatD.HubSpot:HubSpotFormFinisher'
+
+	options {
+		formGuid = ''
+	}
+}

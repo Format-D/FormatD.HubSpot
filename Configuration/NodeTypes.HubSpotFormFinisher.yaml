@@ -1,0 +1,30 @@
+'FormatD.HubSpot:HubSpotFormFinisher':
+  superTypes:
+    'Neos.Form.Builder:AbstractFinisher': true
+  ui:
+    label: 'HubSpot Form Finisher'
+    icon: 'hubspot'
+  properties:
+    formGuid:
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'HubSpot Form Guid'
+        reloadIfChanged: true
+        inspector:
+          group: 'finisher'
+          position: 10
+      validation:
+        'Neos.Neos/Validation/NotEmptyValidator': [ ]
+    mappingSet:
+      type: string
+      defaultValue: 'default'
+      ui:
+        label: 'Mapping Set'
+        reloadPageIfChanged: true
+        inspector:
+          group: 'finisher'
+          position: 20
+          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            dataSourceIdentifier: formatd-hubspot-mapping-sets

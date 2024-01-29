@@ -1,0 +1,15 @@
+Neos:
+  Neos:
+    fusion:
+      autoInclude:
+        FormatD.HubSpot: true
+  Form:
+    presets:
+      default:
+        finisherPresets:
+          'FormatD.Hubspot:HubspotFormFinisher':
+            implementationClassName: FormatD\HubSpot\Form\Finishers\HubSpotFormFinisher
+      fusion:
+        finisherPresets:
+          'FormatD.HubSpot:HubSpotFormFinisher':
+            implementationClassName: FormatD\HubSpot\Form\Finishers\HubSpotFormFinisher

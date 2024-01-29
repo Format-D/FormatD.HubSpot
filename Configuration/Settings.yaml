@@ -1,0 +1,35 @@
+FormatD:
+  HubSpot:
+    api:
+      portalId: ''
+      accessToken: ''
+    formFinisherMappings:
+      default:
+        firstname:
+          objectTypeId: '0-1'
+          name: 'firstname'
+          value: '${fieldValue}'
+        lastname:
+          objectTypeId: '0-1'
+          name: 'lastname'
+          value: '${fieldValue}'
+        company:
+          objectTypeId: '0-1'
+          name: 'company'
+          value: '${fieldValue}'
+        email:
+          objectTypeId: '0-1'
+          name: 'email'
+          value: '${fieldValue}'
+        phone:
+          objectTypeId: '0-1'
+          name: 'phone'
+          value: '${fieldValue}'
+        subject:
+          objectTypeId: '0-5'
+          name: 'subject'
+          value: "${'Anfrage von ' + formValues.company}"
+        content:
+          objectTypeId: '0-5'
+          name: 'content'
+          value: '${fieldValue}'
