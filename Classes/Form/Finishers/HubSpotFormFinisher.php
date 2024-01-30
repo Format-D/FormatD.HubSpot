@@ -99,7 +99,7 @@ class HubSpotFormFinisher extends AbstractFinisher {
 	 * @param string $localFiledName
 	 * @return array
 	 */
-	protected function collectMappingContextVariables(string $localFiledName): array {
+	protected function collectMappingContextVariables(string $localFiledName) {
 		$formValues = $this->finisherContext->getFormValues();
 		return [
 			'formValues' => $formValues,
