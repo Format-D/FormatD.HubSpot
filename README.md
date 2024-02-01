@@ -79,3 +79,8 @@ FormatD:
           value: '${fieldValue}'
 ```
 
+## Extending
+
+Eel expressions can be used in the mapping configuration. These variables form the context can be used in these eel expressions per default: `formValues`, `fieldValue`.
+If you need more your best bet would be to extend the finisher class and provide more context by overriding the `collectMappingContextVariables()` method in the HubSpotFormFinisher class.
+This way it would be possible to provide additional data form session or other sources.
