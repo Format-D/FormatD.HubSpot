@@ -25,6 +25,12 @@ class HubSpotFormFinisher extends AbstractFinisher {
 	 */
 	protected array $fieldMappings;
 
+    /**
+     * @var array
+     * @Flow\InjectConfiguration(path="mappingEelContext", package="FormatD.HubSpot")
+     */
+    protected array $mappingEelContext;
+
 	/**
 	 * @Flow\Inject
 	 * @var CompilingEvaluator
@@ -58,7 +64,7 @@ class HubSpotFormFinisher extends AbstractFinisher {
 			$formFields[] = [
 				'objectTypeId' => $mapping['objectTypeId'],
 				"name" => $mapping['name'],
-				"value" => Utility::evaluateEelExpression($eelExpression, $this->eelEvaluator, $contextVariables)
+				"value" => Utility::evaluateEelExpression($eelExpression, $this->eelEvaluator, $contextVariables, $this->mappingEelContext)
 			];
 		}
 
