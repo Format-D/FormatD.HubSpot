@@ -46,7 +46,20 @@ class HubspotFileHelper extends FileHelper
             $fileUri = $resource->createTemporaryLocalCopy();
             $fileObject = new \SplFileObject($fileUri);
 
-            $response = $this->hubspotApi->files()->filesApi()->upload($fileObject, $folderId);
+            $response = $this->hubspotApi->files()->filesApi()->upload(
+                $fileObject,
+                $folderId,
+                null,
+                $resource->getFilename(),
+                null,
+                json_encode([
+                    'access' => 'PUBLIC_NOT_INDEXABLE',     // Private does not work in HS Tickets
+                    'ttl' => 'P2W',
+                    'overwrite' => false,
+                    'duplicateValidationStrategy' => 'NONE',		// do not run any duplicate validation
+                    'duplicateValidationScope' => 'EXACT_FOLDER'	// search for a duplicate file in the provided folder
+                ])
+            );
         } catch (\Exception $exception) {
             \Neos\Flow\var_dump($exception, 'Error during upload');
             return '';
