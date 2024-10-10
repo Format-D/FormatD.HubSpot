@@ -66,20 +66,4 @@ class HubspotFileHelper extends FileHelper
 
         return $response->getUrl();
     }
-
-
-    public function getStreamContentAsBase64($resource): string
-    {
-        if(!($resource instanceof PersistentResource)) {
-            return '';
-        }
-
-        $streamContents = stream_get_contents($resource->getStream());
-
-        if ($streamContents === false) {
-            return '';
-        }
-
-        return base64_encode($streamContents);
-    }
 }
