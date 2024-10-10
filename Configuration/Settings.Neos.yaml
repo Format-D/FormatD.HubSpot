@@ -13,6 +13,3 @@ Neos:
         finisherPresets:
           'FormatD.HubSpot:HubSpotFormFinisher':
             implementationClassName: FormatD\HubSpot\Form\Finishers\HubSpotFormFinisher
-  Fusion:
-    defaultContext:
-      HFile: 'FormatD\HubSpot\Eel\HubspotFileHelper'
