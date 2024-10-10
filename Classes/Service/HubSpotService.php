@@ -4,6 +4,7 @@ namespace FormatD\HubSpot\Service;
 
 use HubSpot\Discovery\Discovery;
 use Neos\Flow\Annotations as Flow;
+use Psr\Log\LoggerInterface;
 
 /**
  * @Flow\Scope("singleton")
@@ -21,6 +22,12 @@ class HubSpotService
 	 * @var Discovery
 	 */
 	protected Discovery $hubspotApi;
+
+    /**
+     * @Flow\Inject
+     * @var LoggerInterface
+     */
+    protected $logger;
 
 	/**
 	 * @return void
@@ -52,8 +59,7 @@ class HubSpotService
 		try {
 			$response = $this->hubspotApi->apiRequest($requestOptions);
 		} catch (\GuzzleHttp\Exception\ClientException $e) {
-			\Neos\Flow\var_dump((string) $e->getResponse()->getBody(), 'Error Response');
-			\Neos\Flow\var_dump($requestOptions, 'Request Data');
+            $this->logger->error('Error during form submit to HubSpot: '. $e->getMessage());
 		}
 
 		return $response;

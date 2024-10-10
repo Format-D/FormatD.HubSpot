@@ -31,7 +31,7 @@ Releases und compatibility:
 
 Create API-Credentials in HubSpot and add them to neos settings:
 
-```
+```YAML
 FormatD:
   HubSpot:
     api:
@@ -44,7 +44,7 @@ FormatD:
 The package comes with the following default mapping. This mapping can be modified or additional mappings can be configured.
 The objectTypeId is a sort of field-type defined by HubSpot.
 
-```
+```YAML
 FormatD:
   HubSpot:
     formFinisherMappings:
@@ -77,6 +77,35 @@ FormatD:
           objectTypeId: '0-5'
           name: 'content'
           value: '${fieldValue}'
+```
+
+## EEL-Helper for file upload
+
+If you want to use a file upload field in your form you need to use the EEL-Helper `HFile.uploadFileAndGetUrl`. This
+helper uploads the file to the file manager of HubSpot and returns the new URL as a field value, before the form is
+submitted. For the file upload you need to define the folder ID of the folder in HubSpot. You do it either in the
+setting:
+
+```YAML
+FormatD:
+  HubSpot:
+    api:
+      defaultUploadFolderId: '111111111111'
+```
+
+or you set the optional parameter in the helper: `${HFile.uploadFileAndGetUrl(fieldValue, 111111111111)}`.
+
+Here is how you can include the file upload field in your finisher mapping:
+
+```YAML
+FormatD:
+  HubSpot:
+    formFinisherMappings:
+      default:
+        fileUpload:
+          objectTypeId: '0-5'
+          name: 'fileUpload'
+          value: '${HFile.uploadFileAndGetUrl(fieldValue, 111111111111)}'
 ```
 
 ## Extending

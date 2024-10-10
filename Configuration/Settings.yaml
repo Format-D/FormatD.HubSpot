@@ -1,6 +1,7 @@
 FormatD:
   HubSpot:
     mappingEelContext:
+      HFile: FormatD\HubSpot\Eel\HubspotFileHelper
       String: Neos\Eel\Helper\StringHelper
       Array: Neos\Eel\Helper\ArrayHelper
       Date: Neos\Eel\Helper\DateHelper
@@ -12,6 +13,7 @@ FormatD:
     api:
       portalId: ''
       accessToken: ''
+      defaultUploadFolderId: ''
     formFinisherMappings:
       default:
         firstname:

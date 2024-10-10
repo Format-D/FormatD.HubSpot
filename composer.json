@@ -5,7 +5,8 @@
     "license": "MIT",
     "require": {
         "neos/form-builder": "^2.3",
-        "hubspot/api-client": "^9.2"
+        "hubspot/api-client": "^9.2",
+        "ext-json": "*"
     },
     "autoload": {
         "psr-4": {
