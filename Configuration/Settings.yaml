@@ -13,8 +13,7 @@ FormatD:
     api:
       portalId: ''
       accessToken: ''
-    fileApi:
-      folderId: ''
+      defaultUploadFolderId: ''
     formFinisherMappings:
       default:
         firstname:

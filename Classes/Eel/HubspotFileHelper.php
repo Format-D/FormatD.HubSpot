@@ -16,12 +16,6 @@ class HubspotFileHelper extends FileHelper
     protected array $apiConfiguration;
 
     /**
-     * @var array
-     * @Flow\InjectConfiguration(path="fileApi", package="FormatD.HubSpot")
-     */
-    protected array $fileApiConfiguration;
-
-    /**
      * @var Discovery
      */
     protected Discovery $hubspotApi;
@@ -32,7 +26,7 @@ class HubspotFileHelper extends FileHelper
 
     public function uploadFileAndGetUrl($resource, ?string $folderId): string
     {
-        $folderId = $folderId ?? $this->fileApiConfiguration['folderId'];
+        $folderId = $folderId ?? $this->apiConfiguration['defaultUploadFolderId'];
 
         if (!$folderId) {
             return '';
