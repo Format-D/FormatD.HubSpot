@@ -56,6 +56,8 @@ class HubSpotService
 			],
 		];
 
+        $response = null;
+
 		try {
 			$response = $this->hubspotApi->apiRequest($requestOptions);
 		} catch (\GuzzleHttp\Exception\ClientException $e) {
