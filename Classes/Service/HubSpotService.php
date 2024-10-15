@@ -56,13 +56,7 @@ class HubSpotService
 			],
 		];
 
-		try {
-			$response = $this->hubspotApi->apiRequest($requestOptions);
-		} catch (\GuzzleHttp\Exception\ClientException $e) {
-            $this->logger->error('Error during form submit to HubSpot: '. $e->getMessage());
-		}
-
-		return $response;
+        return $this->hubspotApi->apiRequest($requestOptions);
 	}
 
 }
